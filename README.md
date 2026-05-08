@@ -1,17 +1,8 @@
 # 🎓 College AI Chatbot
 
-An AI-powered chatbot that answers queries related to The Neotia University.
+AI-powered chatbot for The Neotia University using TF-IDF.
 
 ## Features
-- Knowledge-based chatbot using TF-IDF and cosine similarity
-- ChatGPT-like UI with typing animation
-- Interactive web interface using Streamlit
-
-## Tech Stack
-- Python
-- Streamlit
-- Scikit-learn
-
-## Run Locally
-pip install -r requirements.txt
-streamlit run streamlit_app.py
+- Smart FAQ answering
+- ChatGPT-style UI
+- Built with Streamlit
