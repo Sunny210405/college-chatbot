@@ -58,9 +58,9 @@ streamlit run streamlit_app.py
 
 ---
 
-## 🌐 Live Demo
+//## 🌐 Live Demo
 
-*(Add your Streamlit deployment link here once deployed)*
+
 
 ---
 
