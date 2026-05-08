@@ -60,7 +60,7 @@ streamlit run streamlit_app.py
 
 ## 🌐 Live Demo
 
-
+https://college-chatbot-apcivin45vtfsftsyxnsl7.streamlit.app/
 
 ---
 
