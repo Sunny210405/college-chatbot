@@ -65,12 +65,12 @@ st.markdown("""
     padding: 8px 18px;
     font-size: 13px;
     transition: 0.3s;
-    width: auto;
-    min-width: 160px;
-    max-width: 190px;
+    width: 100%;
+    max-width: 210px;
     white-space: nowrap;
     display: inline-flex;
     justify-content: center;
+    margin: 0 auto;
 }
 
 .stButton > button:hover {
@@ -211,23 +211,23 @@ st.markdown("<div class='title'>🎓 Campus AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels, placements, and campus services</div>", unsafe_allow_html=True)
 
 # ===== CHIPS =====
-col1, col2, col3, col4, col5, col6 = st.columns([10, 1.7, 1.7, 1.7, 1.7, 10], gap="large")
+col1, col2, col3, col4, col5, col6 = st.columns([0.5, 2, 2, 2, 2, 0.5], gap="medium")
 
 clicked = None
 with col2:
-    if st.button("Admission process"):
+    if st.button("Admission process", use_container_width=True):
         clicked = "Admission process?"
         
 with col3:
-    if st.button("Show fee structure"):
+    if st.button("Show fee structure", use_container_width=True):
         clicked = "Show fee structure"
         
 with col4:
-    if st.button("Hostel facilities"):
+    if st.button("Hostel facilities", use_container_width=True):
         clicked = "Hostel facilities"
         
 with col5:
-    if st.button("Placement details"):
+    if st.button("Placement details", use_container_width=True):
         clicked = "Placement details"
 
 # ===== SESSION =====
