@@ -209,7 +209,7 @@ st.markdown("<div class='title'>🎓 Campus AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels, placements, and campus services</div>", unsafe_allow_html=True)
 
 # ===== CHIPS =====
-col1, col2, col3, col4, col5, col6 = st.columns([6, 2, 2, 2, 2, 6], gap="medium")
+col1, col2, col3, col4, col5, col6 = st.columns([8, 2, 2, 2, 2, 8], gap="large")
 
 clicked = None
 with col2:
