@@ -215,20 +215,20 @@ col1, col2, col3, col4, col5, col6 = st.columns([8, 2, 2, 2, 2, 8], gap="large")
 
 clicked = None
 with col2:
-    if st.button("Admission process"):
-        clicked = "Admission process?"
+    if st.button("Admission"):
+        clicked = "Admission"
         
 with col3:
-    if st.button("Show fee structure"):
-        clicked = "Show fee structure"
+    if st.button("fee"):
+        clicked = "fee"
         
 with col4:
-    if st.button("Hostel facilities"):
-        clicked = "Hostel facilities"
+    if st.button("Hostel"):
+        clicked = "Hostel"
         
 with col5:
-    if st.button("Placement details"):
-        clicked = "Placement details"
+    if st.button("Placement"):
+        clicked = "Placement"
 
 # ===== SESSION =====
 if "messages" not in st.session_state:
