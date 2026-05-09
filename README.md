@@ -43,6 +43,7 @@ college-chatbot/
 │── college_data.txt     # Knowledge base  
 │── requirements.txt     # Dependencies  
 │── README.md            # Documentation  
+│── LICENSE              # MIT License  
 ```
 
 ---
