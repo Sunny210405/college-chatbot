@@ -150,7 +150,7 @@ st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels,
 st.markdown("<div class='chips'>", unsafe_allow_html=True)
 
 clicked = None
-b1 = st.button("What is the admission process?")
+b1 = st.button("Admission process")
 b2 = st.button("Show fee structure")
 b3 = st.button("Hostel facilities")
 b4 = st.button("Placement details")
