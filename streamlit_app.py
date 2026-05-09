@@ -40,9 +40,12 @@ st.markdown("""
 .chips {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 15px;
     flex-wrap: wrap;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 100%;
 }
 
 .stButton > button {
@@ -158,7 +161,7 @@ b4 = st.button("Placement details")
 st.markdown("</div>", unsafe_allow_html=True)
 
 if b1:
-    clicked = "What is the admission process?"
+    clicked = "Admission process?"
 elif b2:
     clicked = "Show fee structure"
 elif b3:
