@@ -200,23 +200,23 @@ st.markdown("<div class='title'>🎓 Campus AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels, placements, and campus services</div>", unsafe_allow_html=True)
 
 # ===== CHIPS =====
-col1, col2, col3, col4 = st.columns(4, gap="medium")
+col1, col2, col3, col4, col5, col6 = st.columns([1, 2, 2, 2, 2, 1], gap="small")
 
 clicked = None
-with col1:
-    if st.button("Admission process", use_container_width=True):
+with col2:
+    if st.button("Admission process"):
         clicked = "Admission process?"
         
-with col2:
-    if st.button("Show fee structure", use_container_width=True):
+with col3:
+    if st.button("Show fee structure"):
         clicked = "Show fee structure"
         
-with col3:
-    if st.button("Hostel facilities", use_container_width=True):
+with col4:
+    if st.button("Hostel facilities"):
         clicked = "Hostel facilities"
         
-with col4:
-    if st.button("Placement details", use_container_width=True):
+with col5:
+    if st.button("Placement details"):
         clicked = "Placement details"
 
 # ===== SESSION =====
