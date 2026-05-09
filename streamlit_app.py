@@ -101,12 +101,24 @@ st.markdown("""
 .user-bubble {
     background: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(79,70,229,0.25));
     color: white;
+    position: relative;
 }
 
 /* BOT GLASS */
 .bot-bubble {
     background: rgba(255,255,255,0.05);
     color: #e2e8f0;
+    position: relative;
+}
+
+/* ===== TIMESTAMP ===== */
+.timestamp {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    font-weight: normal;
 }
 
 /* ===== FLOATING INPUT ===== */
@@ -183,7 +195,7 @@ for sender, msg, timestamp in st.session_state.messages:
     if sender == "user":
         st.markdown(f'''
         <div class="row user">
-            <div class="bubble user-bubble">👤 {msg}<br><small style="color: rgba(255,255,255,0.6); font-size: 11px;">{timestamp}</small></div>
+            <div class="bubble user-bubble">👤 {msg}<span class="timestamp">{timestamp}</span></div>
         </div>
         ''', unsafe_allow_html=True)
     else:
