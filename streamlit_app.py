@@ -66,8 +66,8 @@ st.markdown("""
     font-size: 13px;
     transition: 0.3s;
     width: auto;
-    min-width: 150px;
-    max-width: 160px;
+    min-width: 130px;
+    max-width: 150px;
     white-space: nowrap;
     display: inline-flex;
     justify-content: center;
