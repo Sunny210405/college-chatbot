@@ -19,6 +19,8 @@ st.markdown("""
     max-width: 760px;
     margin: auto;
     padding-bottom: 220px;
+    padding-top: 0;
+    margin-top: -100px;
 }
 
 /* ===== TITLE ===== */
@@ -27,14 +29,16 @@ st.markdown("""
     font-size: 60px;
     font-weight: 800;
     color: white;
-    margin-top: -50px;
+    margin-top: 0;
     margin-bottom: 5px;
+    padding-top: 10px;
 }
 
 .subtitle {
     text-align: center;
     color: #94a3b8;
     margin-bottom: 20px;
+    margin-top: 0;
 }
 
 /* ===== CHIPS ===== */
