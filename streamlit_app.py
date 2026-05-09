@@ -24,7 +24,7 @@ st.markdown("""
 /* ===== TITLE ===== */
 .title {
     text-align: center;
-    font-size: 46px;
+    font-size: 50px;
     font-weight: 700;
     color: white;
     margin-top: -20px;
