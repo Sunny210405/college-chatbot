@@ -48,6 +48,10 @@ st.markdown("""
     width: 100%;
 }
 
+.stButton {
+    flex: 0 1 auto;
+}
+
 .stButton > button {
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,0.1);
@@ -57,6 +61,7 @@ st.markdown("""
     padding: 6px 14px;
     font-size: 13px;
     transition: 0.3s;
+    width: 100%;
 }
 
 .stButton > button:hover {
