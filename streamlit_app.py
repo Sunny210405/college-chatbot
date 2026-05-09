@@ -24,10 +24,10 @@ st.markdown("""
 /* ===== TITLE ===== */
 .title {
     text-align: center;
-    font-size: 50px;
-    font-weight: 700;
+    font-size: 60px;
+    font-weight: 800;
     color: white;
-    margin-top: -20px;
+    margin-top: 20px;
 }
 
 .subtitle {
