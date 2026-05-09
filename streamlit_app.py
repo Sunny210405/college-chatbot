@@ -78,6 +78,24 @@ st.markdown("""
     justify-content: flex-start;
 }
 
+.icon {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.user-icon {
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+}
+
+.bot-icon {
+    background: rgba(99,102,241,0.9);
+    border-radius: 2px;
+}
+
 /* ===== GLASS BUBBLE ===== */
 .bubble {
     padding: 12px 16px 28px;
@@ -195,13 +213,13 @@ for sender, msg, timestamp in st.session_state.messages:
     if sender == "user":
         st.markdown(f'''
         <div class="row user">
-            <div class="bubble user-bubble">👤 {msg}<span class="timestamp">{timestamp}</span></div>
+            <div class="bubble user-bubble"><span class="icon user-icon"></span>{msg}<span class="timestamp">{timestamp}</span></div>
         </div>
         ''', unsafe_allow_html=True)
     else:
         st.markdown(f'''
         <div class="row bot">
-            <div class="bubble bot-bubble">🤖 {msg}<br><small style="color: rgba(255,255,255,0.6); font-size: 11px;">{timestamp}</small></div>
+            <div class="bubble bot-bubble"><span class="icon bot-icon"></span>{msg}<br><small style="color: rgba(255,255,255,0.6); font-size: 11px;">{timestamp}</small></div>
         </div>
         ''', unsafe_allow_html=True)
 
