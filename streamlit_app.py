@@ -68,6 +68,7 @@ st.markdown("""
 .row {
     display: flex;
     width: 100%;
+    align-items: center;
 }
 
 .row.user {
@@ -82,10 +83,17 @@ st.markdown("""
     display: inline-block;
     width: 18px;
     height: 18px;
-    margin-right: 10px;
     vertical-align: middle;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.row.bot .icon {
+    margin-right: 10px;
+}
+
+.row.user .icon {
+    margin-left: 10px;
 }
 
 .user-icon {
@@ -211,13 +219,15 @@ for sender, msg, timestamp in st.session_state.messages:
     if sender == "user":
         st.markdown(f'''
         <div class="row user">
-            <div class="bubble user-bubble"><span class="icon user-icon"></span>{msg}<span class="timestamp">{timestamp}</span></div>
+            <div class="bubble user-bubble">{msg}<span class="timestamp">{timestamp}</span></div>
+            <span class="icon user-icon"></span>
         </div>
         ''', unsafe_allow_html=True)
     else:
         st.markdown(f'''
         <div class="row bot">
-            <div class="bubble bot-bubble"><span class="icon bot-icon"></span>{msg}<br><small style="color: rgba(255,255,255,0.6); font-size: 11px;">{timestamp}</small></div>
+            <span class="icon bot-icon"></span>
+            <div class="bubble bot-bubble">{msg}<br><small style="color: rgba(255,255,255,0.6); font-size: 11px;">{timestamp}</small></div>
         </div>
         ''', unsafe_allow_html=True)
 
