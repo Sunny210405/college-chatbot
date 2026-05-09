@@ -134,13 +134,19 @@ def ranked_scores(cleaned_query):
     return scores
 
 
-def chatbot_response(user_input):
+def chatbot_response(user_input, current_course=None):
     user_input_clean = clean_text(user_input)
     
     # Check if user is asking about fees but hasn't mentioned a specific course
     if any(word in user_input_clean for word in ["fee", "cost", "price", "charge"]):
         courses = ["btech", "bca", "bba", "bpharm", "nursing", "law", "nautical", "agriculture", "fisheries"]
-        if not any(course in user_input_clean for course in courses):
+        course_mentioned = any(course in user_input_clean for course in courses)
+        
+        # If no course mentioned in current query, but we have context from previous conversation
+        if not course_mentioned and current_course:
+            # Append course context to the query for better search results
+            user_input_clean = user_input_clean + " " + current_course.lower()
+        elif not course_mentioned:
             return "Which course's fee structure would you like to know about? We offer B.Tech, BCA, BBA, B.Pharmacy, B.Nursing, BA LLB, B.Sc. Nautical Science, B.Sc. Agriculture, and B.Sc. Fisheries Science. Please specify the course name."
 
     similarity = ranked_scores(user_input_clean)
