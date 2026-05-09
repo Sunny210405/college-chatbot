@@ -3,7 +3,7 @@ import time
 import streamlit.components.v1 as components
 from chatbot import chatbot_response
 
-st.set_page_config(page_title="College AI Chatbot", page_icon="🎓", layout="wide")
+st.set_page_config(page_title="Campus AI", page_icon="🎓", layout="wide")
 
 # ===== CSS =====
 st.markdown("""
@@ -24,7 +24,7 @@ st.markdown("""
 /* ===== TITLE ===== */
 .title {
     text-align: center;
-    font-size: 34px;
+    font-size: 46px;
     font-weight: 700;
     color: white;
     margin-top: 30px;
@@ -143,7 +143,7 @@ st.markdown("""
 # ===== UI =====
 st.markdown("<div class='container'>", unsafe_allow_html=True)
 
-st.markdown("<div class='title'>🎓 College AI Chatbot</div>", unsafe_allow_html=True)
+st.markdown("<div class='title'>🎓 Campus AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels, placements, and campus services</div>", unsafe_allow_html=True)
 
 # ===== CHIPS =====
