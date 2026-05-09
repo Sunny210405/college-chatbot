@@ -41,6 +41,23 @@ st.markdown("""
     margin-top: 0;
     margin-bottom: 5px;
     padding-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 0 20px rgba(99,102,241,0.5), 0 0 40px rgba(99,102,241,0.3);
+    background: linear-gradient(45deg, #ffffff, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.title::before {
+    content: "🎓";
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    filter: drop-shadow(0 0 10px rgba(99,102,241,0.6));
 }
 
 .subtitle {
