@@ -12,6 +12,11 @@ st.markdown("""
 /* ===== BACKGROUND ===== */
 [data-testid="stAppViewContainer"] {
     background: linear-gradient(135deg, #0f172a, #1e293b);
+    padding-top: 0 !important;
+}
+
+[data-testid="stMain"] {
+    padding-top: 0 !important;
 }
 
 /* ===== CONTAINER ===== */
@@ -19,8 +24,8 @@ st.markdown("""
     max-width: 760px;
     margin: auto;
     padding-bottom: 220px;
+    margin-top: -200px;
     padding-top: 0;
-    margin-top: -100px;
 }
 
 /* ===== TITLE ===== */
