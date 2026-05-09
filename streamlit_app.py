@@ -37,21 +37,6 @@ st.markdown("""
 }
 
 /* ===== CHIPS ===== */
-.chips {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.stButton {
-    flex: 0 1 auto;
-}
-
 .stButton > button {
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,0.1);
@@ -61,7 +46,6 @@ st.markdown("""
     padding: 6px 14px;
     font-size: 13px;
     transition: 0.3s;
-    width: 100%;
 }
 
 .stButton > button:hover {
@@ -155,24 +139,24 @@ st.markdown("<div class='title'>🎓 Campus AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels, placements, and campus services</div>", unsafe_allow_html=True)
 
 # ===== CHIPS =====
-st.markdown("<div class='chips'>", unsafe_allow_html=True)
+col1, col2, col3, col4 = st.columns(4, gap="medium")
 
 clicked = None
-b1 = st.button("Admission process")
-b2 = st.button("Show fee structure")
-b3 = st.button("Hostel facilities")
-b4 = st.button("Placement details")
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-if b1:
-    clicked = "Admission process?"
-elif b2:
-    clicked = "Show fee structure"
-elif b3:
-    clicked = "Hostel facilities"
-elif b4:
-    clicked = "Placement details"
+with col1:
+    if st.button("Admission process", use_container_width=True):
+        clicked = "Admission process?"
+        
+with col2:
+    if st.button("Show fee structure", use_container_width=True):
+        clicked = "Show fee structure"
+        
+with col3:
+    if st.button("Hostel facilities", use_container_width=True):
+        clicked = "Hostel facilities"
+        
+with col4:
+    if st.button("Placement details", use_container_width=True):
+        clicked = "Placement details"
 
 # ===== SESSION =====
 if "messages" not in st.session_state:
