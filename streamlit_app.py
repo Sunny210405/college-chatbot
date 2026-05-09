@@ -13,6 +13,8 @@ st.markdown("""
 /* ===== BACKGROUND ===== */
 [data-testid="stAppViewContainer"] {
     background: linear-gradient(135deg, #0c0a09 0%, #1e1b4b 25%, #312e81 50%, #1e1b4b 75%, #0c0a09 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
     background-attachment: fixed;
     padding-top: 0 !important;
 }
@@ -172,6 +174,12 @@ st.markdown("""
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(8px);}
     to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* ===== MOBILE ===== */
