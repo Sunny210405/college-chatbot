@@ -66,7 +66,7 @@ st.markdown("""
     font-size: 13px;
     transition: 0.3s;
     width: auto;
-    min-width: 170px;
+    min-width: 140px;
 }
 
 .stButton > button:hover {
@@ -207,7 +207,7 @@ st.markdown("<div class='title'>🎓 Campus AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels, placements, and campus services</div>", unsafe_allow_html=True)
 
 # ===== CHIPS =====
-col1, col2, col3, col4, col5, col6 = st.columns([0.5, 1, 1, 1, 1, 0.5], gap="small")
+col1, col2, col3, col4, col5, col6 = st.columns([4, 1, 1, 1, 1, 4], gap="small")
 
 clicked = None
 with col2:
