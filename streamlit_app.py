@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import datetime
 import streamlit.components.v1 as components
 from chatbot import chatbot_response
 
@@ -173,21 +174,22 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 if clicked:
-    st.session_state.messages.append(("user", clicked))
+    timestamp = datetime.datetime.now().strftime("%H:%M")
+    st.session_state.messages.append(("user", clicked, timestamp))
     st.rerun()
 
 # ===== CHAT =====
-for sender, msg in st.session_state.messages:
+for sender, msg, timestamp in st.session_state.messages:
     if sender == "user":
         st.markdown(f'''
         <div class="row user">
-            <div class="bubble user-bubble">👤 {msg}</div>
+            <div class="bubble user-bubble">👤 {msg}<br><small style="color: rgba(255,255,255,0.6); font-size: 11px;">{timestamp}</small></div>
         </div>
         ''', unsafe_allow_html=True)
     else:
         st.markdown(f'''
         <div class="row bot">
-            <div class="bubble bot-bubble">🤖 {msg}</div>
+            <div class="bubble bot-bubble">🤖 {msg}<br><small style="color: rgba(255,255,255,0.6); font-size: 11px;">{timestamp}</small></div>
         </div>
         ''', unsafe_allow_html=True)
 
@@ -198,12 +200,13 @@ st.markdown("<div id='bottom'></div>", unsafe_allow_html=True)
 user_input = st.chat_input("Ask about your college...")
 
 if user_input:
-    st.session_state.messages.append(("user", user_input))
+    timestamp = datetime.datetime.now().strftime("%H:%M")
+    st.session_state.messages.append(("user", user_input, timestamp))
     st.rerun()
 
 # ===== BOT =====
 if st.session_state.messages:
-    last_sender, last_msg = st.session_state.messages[-1]
+    last_sender, last_msg, last_timestamp = st.session_state.messages[-1]
 
     if last_sender == "user":
         response = chatbot_response(last_msg)
@@ -219,7 +222,8 @@ if st.session_state.messages:
             )
             time.sleep(0.008)
 
-        st.session_state.messages.append(("bot", response))
+        timestamp = datetime.datetime.now().strftime("%H:%M")
+        st.session_state.messages.append(("bot", response, timestamp))
         st.rerun()
 
 # ===== AUTO SCROLL =====
