@@ -80,23 +80,21 @@ st.markdown("""
 
 .icon {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 18px;
+    height: 18px;
     margin-right: 10px;
     vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .user-icon {
-    background: rgba(255,255,255,0.9);
-    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='22' r='12' fill='%23ffffff'/%3E%3Cpath d='M16 60c0-10 8-18 16-18s16 8 16 18' fill='none' stroke='%23ffffff' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M14 36c0-7 8-12 18-12s18 5 18 12' fill='none' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M20 22c0 5 4 8 4 8M44 22c0 5-4 8-4 8' fill='none' stroke='%230b1120' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M24 38c4 4 16 4 20 0' fill='none' stroke='%230b1120' stroke-width='3'/%3E%3C/svg%3E");
 }
 
 .bot-icon {
-    background: rgba(99,102,241,0.9);
-    border-radius: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='14' y='16' width='36' height='32' rx='6' fill='%23636cf1'/%3E%3Crect x='20' y='12' width='24' height='8' rx='4' fill='%232c3d80'/%3E%3Ccircle cx='24' cy='30' r='4' fill='%23ffffff'/%3E%3Ccircle cx='40' cy='30' r='4' fill='%23ffffff'/%3E%3Cpath d='M22 42h20' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M20 24h24' stroke='%232c3d80' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
 }
-
-/* ===== GLASS BUBBLE ===== */
 .bubble {
     padding: 12px 16px 28px;
     border-radius: 20px;
