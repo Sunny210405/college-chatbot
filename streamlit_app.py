@@ -80,7 +80,7 @@ st.markdown("""
 
 /* ===== GLASS BUBBLE ===== */
 .bubble {
-    padding: 12px 16px;
+    padding: 12px 16px 28px;
     border-radius: 20px;
     max-width: 70%;
     margin: 8px 0;
