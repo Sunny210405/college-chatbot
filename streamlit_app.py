@@ -233,6 +233,9 @@ with col5:
 # ===== SESSION =====
 if "messages" not in st.session_state:
     st.session_state.messages = []
+    # Add initial greeting
+    greeting_time = datetime.datetime.now().strftime("%H:%M")
+    st.session_state.messages.append(("bot", "Hi! 👋 Welcome to Campus AI. I'm here to help you with information about The Neotia University. You can click on one of the quick options below or type your own question about admissions, courses, fees, hostel, placements, or campus facilities. What would you like to know?", greeting_time))
 
 if clicked:
     timestamp = datetime.datetime.now().strftime("%H:%M")

@@ -135,9 +135,15 @@ def ranked_scores(cleaned_query):
 
 
 def chatbot_response(user_input):
-    user_input = clean_text(user_input)
+    user_input_clean = clean_text(user_input)
+    
+    # Check if user is asking about fees but hasn't mentioned a specific course
+    if any(word in user_input_clean for word in ["fee", "cost", "price", "charge"]):
+        courses = ["btech", "bca", "bba", "bpharm", "nursing", "law", "nautical", "agriculture", "fisheries"]
+        if not any(course in user_input_clean for course in courses):
+            return "Which course's fee structure would you like to know about? We offer B.Tech, BCA, BBA, B.Pharmacy, B.Nursing, BA LLB, B.Sc. Nautical Science, B.Sc. Agriculture, and B.Sc. Fisheries Science. Please specify the course name."
 
-    similarity = ranked_scores(user_input)
+    similarity = ranked_scores(user_input_clean)
 
     # Use the old simple top-match behavior, but keep answers compact.
     top_indices = similarity.argsort()[-3:][::-1]
