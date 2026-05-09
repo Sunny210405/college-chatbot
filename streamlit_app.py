@@ -51,15 +51,22 @@ st.markdown("""
 }
 
 /* ===== CHIPS ===== */
+.stButton {
+    display: flex;
+    justify-content: center;
+}
+
 .stButton > button {
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,0.1);
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
     color: #cbd5f5;
-    padding: 6px 14px;
+    padding: 8px 20px;
     font-size: 13px;
     transition: 0.3s;
+    width: auto;
+    min-width: 170px;
 }
 
 .stButton > button:hover {
@@ -200,7 +207,7 @@ st.markdown("<div class='title'>🎓 Campus AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels, placements, and campus services</div>", unsafe_allow_html=True)
 
 # ===== CHIPS =====
-col1, col2, col3, col4, col5, col6 = st.columns([1, 2, 2, 2, 2, 1], gap="small")
+col1, col2, col3, col4, col5, col6 = st.columns([0.5, 1, 1, 1, 1, 0.5], gap="small")
 
 clicked = None
 with col2:
