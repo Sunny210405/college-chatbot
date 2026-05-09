@@ -27,13 +27,14 @@ st.markdown("""
     font-size: 60px;
     font-weight: 800;
     color: white;
-    margin-top: 5px;
+    margin-top: -50px;
+    margin-bottom: 5px;
 }
 
 .subtitle {
     text-align: center;
     color: #94a3b8;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 /* ===== CHIPS ===== */
