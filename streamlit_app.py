@@ -104,7 +104,7 @@ st.markdown("""
 }
 
 .bot-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M18 22h28v20a6 6 0 0 1-6 6H24a6 6 0 0 1-6-6V22z' fill='%23636cf1'/%3E%3Cpath d='M22 18h20v6H22z' fill='%233b4abe'/%3E%3Cpath d='M24 28h6v6h-6zM38 28h6v6h-6z' fill='%23ffffff'/%3E%3Cpath d='M22 38h20' fill='none' stroke='%232c3d80' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M28 16l-4-4M40 16l4-4' fill='none' stroke='%232c3d80' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='14' y='14' width='36' height='36' rx='8' fill='%23636cf1'/%3E%3Crect x='20' y='10' width='24' height='10' rx='4' fill='%233b4abe'/%3E%3Ccircle cx='26' cy='28' r='4' fill='%23ffffff'/%3E%3Ccircle cx='38' cy='28' r='4' fill='%23ffffff'/%3E%3Cpath d='M22 40h20' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M18 22h4M42 22h4' stroke='%232c3d80' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 .bubble {
     padding: 12px 16px 28px;
