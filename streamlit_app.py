@@ -66,8 +66,9 @@ st.markdown("""
     font-size: 13px;
     transition: 0.3s;
     width: auto;
-    min-width: 120px;
-    max-width: 180px;
+    min-width: 160px;
+    max-width: 220px;
+    white-space: nowrap;
 }
 
 .stButton > button:hover {
