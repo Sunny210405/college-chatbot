@@ -12,7 +12,8 @@ st.markdown("""
 
 /* ===== BACKGROUND ===== */
 [data-testid="stAppViewContainer"] {
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    background: linear-gradient(135deg, #0c0a09 0%, #1e1b4b 25%, #312e81 50%, #1e1b4b 75%, #0c0a09 100%);
+    background-attachment: fixed;
     padding-top: 0 !important;
 }
 
