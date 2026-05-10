@@ -6,6 +6,11 @@ from chatbot import chatbot_response
 
 st.set_page_config(page_title="Campus AI", page_icon="🎓", layout="wide")
 
+# ===== MOBILE VIEWPORT =====
+st.markdown("""
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+""", unsafe_allow_html=True)
+
 # ===== CSS =====
 st.markdown("""
 <style>
@@ -197,8 +202,139 @@ st.markdown("""
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
-    .container { max-width: 95%; }
-    .bubble { max-width: 85%; }
+    .container {
+        max-width: 95%;
+        padding-bottom: 180px;
+        margin-top: -150px;
+    }
+
+    .title {
+        font-size: 40px;
+        margin-bottom: 10px;
+        padding-top: 5px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-bottom: 15px;
+        padding: 0 10px;
+    }
+
+    .bubble {
+        max-width: 85%;
+        padding: 10px 14px 24px;
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    .icon {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        background-size: 16px 16px;
+    }
+
+    .row.bot .icon {
+        margin-right: 8px;
+    }
+
+    .row.user .icon {
+        margin-left: 8px;
+    }
+
+    .timestamp {
+        font-size: 10px;
+        bottom: 6px;
+        right: 10px;
+    }
+
+    [data-testid="stChatInput"] {
+        width: 95%;
+        max-width: 95%;
+        bottom: 10px;
+        padding: 8px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .stButton > button {
+        padding: 10px 16px;
+        font-size: 14px;
+        min-width: 80px;
+        max-width: 120px;
+        margin: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 98%;
+        padding-bottom: 160px;
+        margin-top: -120px;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .bubble {
+        max-width: 90%;
+        padding: 8px 12px 20px;
+        font-size: 14px;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        background-size: 14px 14px;
+    }
+
+    [data-testid="stChatInput"] {
+        width: 98%;
+        max-width: 98%;
+        bottom: 8px;
+    }
+
+    .stButton > button {
+        padding: 8px 12px;
+        font-size: 13px;
+        min-width: 70px;
+        max-width: 100px;
+    }
+}
+
+/* ===== RESPONSIVE BUTTONS ===== */
+@media (max-width: 768px) {
+    .button-container {
+        gap: 6px !important;
+    }
+
+    .button-container .stButton > button {
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+        min-width: 80px !important;
+        max-width: 120px !important;
+        margin: 2px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .button-container {
+        gap: 4px !important;
+    }
+
+    .button-container .stButton > button {
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+        min-width: 70px !important;
+        max-width: 100px !important;
+    }
 }
 
 </style>
@@ -211,24 +347,19 @@ st.markdown("<div class='title'>🎓 Campus AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels, placements, and campus services</div>", unsafe_allow_html=True)
 
 # ===== CHIPS =====
-col1, col2, col3, col4, col5, col6 = st.columns([8, 2, 2, 2, 2, 8], gap="large")
+# Responsive button layout
+st.markdown("""
+<div class="button-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+""", unsafe_allow_html=True)
 
+buttons = ["Admission", "fee", "Hostel", "Placement"]
 clicked = None
-with col2:
-    if st.button("Admission"):
-        clicked = "Admission"
-        
-with col3:
-    if st.button("fee"):
-        clicked = "fee"
-        
-with col4:
-    if st.button("Hostel"):
-        clicked = "Hostel"
-        
-with col5:
-    if st.button("Placement"):
-        clicked = "Placement"
+
+for btn_text in buttons:
+    if st.button(btn_text, key=f"btn_{btn_text.lower()}"):
+        clicked = btn_text
+
+st.markdown("</div>", unsafe_allow_html=True)
 
 # ===== SESSION =====
 if "messages" not in st.session_state:
@@ -241,7 +372,7 @@ if "current_course" not in st.session_state:
     st.session_state.current_course = None
 
 if clicked:
-    timestamp = datetime.datetime.now().strftime("%H:%M")
+    timestamp = datetime.datetime.now().strftime("%H:%M:%S")
     st.session_state.messages.append(("user", clicked, timestamp))
     st.rerun()
 
@@ -269,7 +400,7 @@ st.markdown("<div id='bottom'></div>", unsafe_allow_html=True)
 user_input = st.chat_input("Ask about your college...")
 
 if user_input:
-    timestamp = datetime.datetime.now().strftime("%H:%M")
+    timestamp = datetime.datetime.now().strftime("%H:%M:%S")
     st.session_state.messages.append(("user", user_input, timestamp))
     st.rerun()
 
@@ -278,7 +409,7 @@ if st.session_state.messages:
     last_sender, last_msg, last_timestamp = st.session_state.messages[-1]
 
     if last_sender == "user":
-        response = chatbot_response(last_msg)
+        response = chatbot_response(last_msg, st.session_state.current_course)
 
         placeholder = st.empty()
         typed = ""
@@ -291,7 +422,7 @@ if st.session_state.messages:
             )
             time.sleep(0.008)
 
-        timestamp = datetime.datetime.now().strftime("%H:%M")
+        timestamp = datetime.datetime.now().strftime("%H:%M:%S")
         st.session_state.messages.append(("bot", response, timestamp))
         st.rerun()
 
