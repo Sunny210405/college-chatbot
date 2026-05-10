@@ -126,7 +126,7 @@ st.markdown("""
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='14' y='14' width='36' height='36' rx='8' fill='%23636cf1'/%3E%3Crect x='20' y='10' width='24' height='10' rx='4' fill='%233b4abe'/%3E%3Ccircle cx='26' cy='28' r='4' fill='%23ffffff'/%3E%3Ccircle cx='38' cy='28' r='4' fill='%23ffffff'/%3E%3Cpath d='M22 40h20' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M18 22h4M42 22h4' stroke='%232c3d80' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 .bubble {
-    padding: 12px 16px 28px;
+    padding: 12px 16px;
     border-radius: 20px;
     max-width: 70%;
     margin: 8px 0;
@@ -155,16 +155,6 @@ st.markdown("""
     background: rgba(255,255,255,0.05);
     color: #e2e8f0;
     position: relative;
-}
-
-/* ===== TIMESTAMP ===== */
-.timestamp {
-    position: absolute;
-    bottom: 8px;
-    right: 12px;
-    font-size: 11px;
-    color: rgba(255,255,255,0.6);
-    font-weight: normal;
 }
 
 /* ===== FLOATING INPUT ===== */
@@ -222,7 +212,7 @@ st.markdown("""
 
     .bubble {
         max-width: 85%;
-        padding: 10px 14px 24px;
+        padding: 10px 14px;
         font-size: 15px;
         line-height: 1.4;
     }
@@ -240,12 +230,6 @@ st.markdown("""
 
     .row.user .icon {
         margin-left: 8px;
-    }
-
-    .timestamp {
-        font-size: 10px;
-        bottom: 6px;
-        right: 10px;
     }
 
     [data-testid="stChatInput"] {
@@ -284,7 +268,7 @@ st.markdown("""
 
     .bubble {
         max-width: 90%;
-        padding: 8px 12px 20px;
+        padding: 8px 12px;
         font-size: 14px;
     }
 
@@ -309,34 +293,6 @@ st.markdown("""
     }
 }
 
-/* ===== RESPONSIVE BUTTONS ===== */
-@media (max-width: 768px) {
-    .button-container {
-        gap: 6px !important;
-    }
-
-    .button-container .stButton > button {
-        padding: 10px 16px !important;
-        font-size: 14px !important;
-        min-width: 80px !important;
-        max-width: 120px !important;
-        margin: 2px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .button-container {
-        gap: 4px !important;
-    }
-
-    .button-container .stButton > button {
-        padding: 8px 12px !important;
-        font-size: 13px !important;
-        min-width: 70px !important;
-        max-width: 100px !important;
-    }
-}
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -347,19 +303,24 @@ st.markdown("<div class='title'>🎓 Campus AI</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>Ask about admissions, courses, fees, hostels, placements, and campus services</div>", unsafe_allow_html=True)
 
 # ===== CHIPS =====
-# Responsive button layout
-st.markdown("""
-<div class="button-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
-""", unsafe_allow_html=True)
+col1, col2, col3, col4, col5, col6 = st.columns([8, 2, 2, 2, 2, 8], gap="large")
 
-buttons = ["Admission", "fee", "Hostel", "Placement"]
 clicked = None
+with col2:
+    if st.button("Admission"):
+        clicked = "Admission"
 
-for btn_text in buttons:
-    if st.button(btn_text, key=f"btn_{btn_text.lower()}"):
-        clicked = btn_text
+with col3:
+    if st.button("fee"):
+        clicked = "fee"
 
-st.markdown("</div>", unsafe_allow_html=True)
+with col4:
+    if st.button("Hostel"):
+        clicked = "Hostel"
+
+with col5:
+    if st.button("Placement"):
+        clicked = "Placement"
 
 # ===== SESSION =====
 if "messages" not in st.session_state:
@@ -381,7 +342,7 @@ for sender, msg, timestamp in st.session_state.messages:
     if sender == "user":
         st.markdown(f'''
         <div class="row user">
-            <div class="bubble user-bubble">{msg}<span class="timestamp">{timestamp}</span></div>
+            <div class="bubble user-bubble">{msg}</div>
             <span class="icon user-icon"></span>
         </div>
         ''', unsafe_allow_html=True)
@@ -389,7 +350,7 @@ for sender, msg, timestamp in st.session_state.messages:
         st.markdown(f'''
         <div class="row bot">
             <span class="icon bot-icon"></span>
-            <div class="bubble bot-bubble">{msg}<br><small style="color: rgba(255,255,255,0.6); font-size: 11px;">{timestamp}</small></div>
+            <div class="bubble bot-bubble">{msg}</div>
         </div>
         ''', unsafe_allow_html=True)
 
